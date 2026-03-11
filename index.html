@@ -1,0 +1,378 @@
+  <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV de Prestige | Profil Complet</title>
+    <!-- Polices Premium -->
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <script src="https://unpkg.com"></script>
+    <style>
+    html {
+    scroll-behavior: smooth;
+}
+
+    
+    .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(15, 23, 42, 0.8); /* Fond sombre semi-transparent */
+    backdrop-filter: blur(15px); /* Effet de flou moderne */
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    z-index: 1000;
+}
+
+.nav-logo {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* Ajustement pour ne pas cacher le haut du CV */
+header {
+    padding-top: 80px;
+}
+
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f1d37b;
+            --deep-blue: #0f172a;
+            --accent-blue: #38bdf8;
+            --glass: rgba(255, 255, 255, 0.05);
+            --text-light: #f8fafc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--deep-blue); 
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Arrière-plan animé */
+        .bg-animate {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+            z-index: -2;
+        }
+
+        /* Header / Hero */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), var(--deep-blue)), 
+                        url('https://images.unsplash.com');
+            background-size: cover;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .profile-frame {
+            position: relative;
+            width: 240px; height: 240px;
+            padding: 10px;
+            border: 2px solid var(--gold);
+            border-radius: 50% 20% 50% 20%;
+            transition: 0.6s ease;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            animation: rotateFrame 10s linear infinite;
+        }
+        @keyframes rotateFrame { 0%, 100% { border-radius: 50% 20% 50% 20%; } 50% { border-radius: 20% 50% 20% 50%; } }
+
+        .profile-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 4rem; margin-top: 20px; 
+            background: linear-gradient(to right, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Containers & Sections */
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+
+        
+        .section-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 60px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .section-card:hover { transform: translateY(-10px); border-color: var(--gold); background: rgba(255, 255, 255, 0.05); }
+
+        h2 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.2rem; color: var(--gold); 
+            margin-bottom: 40px; display: flex; align-items: center; gap: 15px;
+        }
+
+        /* Grille Infos Personnelles */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .info-box {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--gold);
+        }
+        .info-box label { display: block; color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        .info-box span { font-size: 1.1rem; font-weight: 600; color: #fff; }
+
+        /* Compétences & Barres */
+        .skill-item { margin-bottom: 30px; }
+        .skill-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .bar-bg { width: 100%; height: 14px; background: rgba(255,255,255,0.1); border-radius: 50px; position: relative; }
+        .bar-fill { 
+            height: 100%;
+            border-radius: 50px; 
+            background: linear-gradient(90deg, var(--gold), #ffebad); 
+            width: 0;
+            transition: 2.5s
+            cubic-bezier(0.1, 0, 0.1, 1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);;
+        }
+
+        /* Timeline Diplômes */
+        .edu-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 0; }
+        .edu-item:last-child { border: none; }
+        .edu-year { color: var(--accent-blue); font-weight: 700; font-size: 1.2rem; }
+
+        /* Contact & Form */
+        input, textarea {
+            width: 100%; padding: 18px; margin-bottom: 20px;
+            background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+            color: white; border-radius: 12px; outline: none; transition: 0.3s;
+        }
+        input:focus { border-color: var(--gold); box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+        .submit-btn {
+            background: var(--gold); color: var(--deep-blue);
+            padding: 18px 40px; border: none; border-radius: 50px;
+            font-weight: 900; cursor: pointer; transition: 0.4s; width: 100%;
+        }
+        .submit-btn:hover { background: var(--gold-light); transform: scale(1.02); letter-spacing: 3px; }
+
+        footer { text-align: center; padding: 100px 20px; background: rgba(0,0,0,0.2); }
+        .thanks { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+    <div class="nav-logo">PORTFOLIO</div>
+    <ul class="nav-links">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+    <div class="bg-animate"></div>
+
+    <header>
+        <div class="profile-frame">
+            <!-- VOTRE PHOTO ICI -->
+            <img src="Saniat.jpg" alt="SANIAT" class="profile-img">
+        </div>
+        <h1>SANIAT</h1>
+        <p style="letter-spacing: 5px; color: var(--gold-light); font-weight: 300;">CURRICULUM VITAE PROFESSIONNEL</p>
+    </header>
+
+    <div class="container">
+
+        <!-- SECTION PROFIL DÉTAILLÉ -->
+        <section class="section-card">
+            <h2>📜 État Civil & Coordonnées</h2>
+            <div class="info-grid">
+                <div class="info-box"><label>Nom</label><span>NIRINAVAVITIANA</span></div>
+                <div class="info-box"><label>Prénom</label><span>Saniat Selmanne</span></div>
+                <div class="info-box"><label>Né(e) le</label><span>12 / juillet / 2006</span></div>
+                <div class="info-box"><label>Lieu de naissance</label><span>Beloha Androy, Madagascar</span></div>
+                <div class="info-box"><label>CIN</label><span>513 072 014 565</span></div>
+                <div class="info-box"><label>Téléphone</label><span>+261 33 36 716 16</span></div>
+                <div class="info-box"><label>Email</label><span>saniatselmanne@gmail.com</span></div>
+                <div class="info-box"><label>Adresse Actuelle</label><span>Lot 222, Andrainjato, Fianarantsoa</span></div>
+                <div class="info-box"><label>Nom du Père</label><span>RAZAFINDRAKOTO Arifenomanana</span></div>
+                <div class="info-box"><label>Nom de la Mère</label><span>NASOLOVAVY Adollyne Selyannah</span></div>
+                <div class="info-box"><label>Situation Matrimoniale</label><span>Célibataire</span></div>
+            </div>
+        </section>
+
+        <!-- AVANT PROPOS -->
+        <section class="section-card">
+            <h2>💡 Avant-Propos</h2>
+            <p style="font-size: 1.2rem; font-style: italic; color: #cbd5e1;">
+                "Engagé dans une démarche d'excellence, je combine rigueur technique et créativité pour répondre aux défis de demain. Ce portfolio est le reflet de mon ambition et de mes capacités d'adaptation dans les domaines de l'informatique et de la mécanique."
+            </p>
+        </section>
+
+        <!-- COMPÉTENCES -->
+        <section class="section-card">
+            <h2>⚡ Compétences & Expertise</h2>
+            
+            <div class="skill-item">
+                <div class="skill-header"><span>Informatique</span><span>59%</span></div>
+                <div class="bar-bg"><div class="bar-fill" data-percent="59%"></div></div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-header"><span>Mécanique Auto</span><span>50%</span></div>
+                <div class="bar-bg"><div class="bar-fill" data-percent="50%"></div></div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-header"><span>Maintenance Système</span><span>75%</span></div>
+                <div class="bar-bg"><div class="bar-fill" data-percent="75%"></div></div>
+            </div>
+        </section>
+
+        <!-- LANGUES -->
+        <section class="section-card">
+            <h2>🌍 Maîtrise des Langues</h2>
+            
+            <div class="skill-item">
+                <div class="skill-header"><span>Malagasy (Langue maternelle)</span><span>90%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="background: var(--accent-blue)" data-percent="91%"></div></div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-header"><span>Français</span><span>40%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="background: var(--accent-blue)" data-percent="45%"></div></div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-header"><span>Anglais</span><span>45%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="background: var(--accent-blue)" data-percent="33%"></div></div>
+            </div>
+        </section>
+
+        <!-- DIPLÔMES -->
+        <section class="section-card">
+            <h2>🎓 Diplômes Obtenus</h2>
+            <div class="edu-item">
+                <div class="edu-year">2025</div>
+                <h3>BACCALAURÉAT série D</h3>
+                <p>Lycée privé sacré cœur Ambovombe Androy</p>
+            </div>
+            <div class="edu-item">
+                <div class="edu-year">2022</div>
+                <h3>BEPC</h3>
+                <p>College saint Vincent de Paul beloha Androy</p>
+            </div>
+            <div class="edu-item">
+                <div class="edu-year">2017</div>
+                <h3>CEPE</h3>
+                <p>College Saint Vincent de Paul Beloha Androy</p>
+            </div>
+        </section>
+
+        <!-- LOISIRS -->
+        <section class="section-card">
+            <h2>🏀 Sports & Loisirs</h2>
+            <div class="info-grid">
+                <div class="info-box" style="text-align: center;">Basket-ball (Compétition)</div>
+                <div class="info-box" style="text-align: center;">Football</div></div>
+                <div class="info-box" style="text-align: center;">Lecture</div>
+            </div>
+        </section>
+
+        <!-- CONTACT & COMMENTAIRES -->
+        <section class="section-card">
+            <h2>📩 Contact & Questions</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Votre Nom Complet" required>
+                <textarea id="message" rows="5" placeholder="Votre message ou question..." required></textarea>
+                <button type="submit" class="submit-btn">ENVOYER AU PROPRIÉTAIRE</button>
+            </form>
+            <div id="comments" style="margin-top: 30px;"></div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="thanks">✨ Remerciements ✨</div>
+        <p>Merci d'avoir pris le temps de consulter mon parcours. Votre visite m'honore.</p>
+        <p style="margin-top: 20px; opacity: 0.4; font-size: 0.8rem;">© 2024 - Créé avec Excellence.</p>
+    </footer>
+
+    <script>
+        // Animations ScrollReveal
+        ScrollReveal().reveal('.section-card', { delay: 300, distance: '60px', origin: 'bottom', duration: 1200 });
+
+        // Animation des barres au défilement
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const fill = entry.target;
+                    fill.style.width = fill.getAttribute('data-percent');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.bar-fill').forEach(bar => observer.observe(bar));
+
+        // Formulaire et commentaires
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const msg = document.getElementById('message').value;
+            
+            const commentDiv = document.createElement('div');
+            commentDiv.style.padding = "15px";
+            commentDiv.style.background = "rgba(255,255,255,0.1)";
+            commentDiv.style.borderRadius = "10px";
+            commentDiv.style.marginTop = "10px";
+            commentDiv.innerHTML = `<strong>${name} :</strong> <p>${msg}</p>`;
+            
+            document.getElementById('comments').prepend(commentDiv);
+            form.reset();
+            alert("Merci pour votre visite ! Votre message a été enregistré.");
+        });
+    </script>
+</body>
+</html>
